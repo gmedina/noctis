@@ -166,7 +166,7 @@ Noctis can be installed by clicking on Ctrl + Shift + X on Windows or ⇧ + ⌘ 
 Noctis can also be installed as a Vim colorscheme plugin with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'liviuschera/noctis'
+Plug 'gmedina/noctis'
 ```
 
 After running `:PlugInstall`, choose one of the available variants:

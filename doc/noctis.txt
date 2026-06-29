@@ -11,7 +11,7 @@ INSTALLATION                                            *noctis-installation*
 
 Using vim-plug:
 >
-  Plug 'liviuschera/noctis'
+  Plug 'gmedina/noctis'
 <
 
 Then run:
