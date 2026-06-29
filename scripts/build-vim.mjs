@@ -177,6 +177,8 @@ function highlight(group, options) {
     }
   }
 
+  parts.push(`, '${options.fg && options.fg !== "NONE" ? xterm256(options.fg) : ""}'`);
+  parts.push(`, '${options.bg && options.bg !== "NONE" ? xterm256(options.bg) : ""}'`);
   parts.push(")");
   return parts.join("");
 }
@@ -321,6 +323,7 @@ function buildTheme(name, theme) {
   const background = color(colors, "editor.background");
   const foreground = color(colors, "editor.foreground", palette.text);
   const line = colorOn(colors, "editor.lineHighlightBackground", background, blend(foreground, background, 0.12));
+  const lineBorder = colorOn(colors, "editor.lineHighlightBorder", background, line);
   const visual = colorOn(colors, "editor.selectionBackground", background, blend(foreground, background, 0.22));
   const statusBg = color(colors, "statusBar.background", color(colors, "sideBar.background", background));
   const statusActiveBg = colorOn(
@@ -351,9 +354,13 @@ function buildTheme(name, theme) {
     ["ColorColumn", { bg: color(colors, "editorRuler.foreground", line) }],
     ["Conceal", { fg: palette.misc }],
     ["Cursor", { fg: background, bg: cursor }],
+    ["lCursor", { fg: background, bg: cursor }],
+    ["CursorIM", { fg: background, bg: cursor }],
     ["CursorColumn", { bg: line }],
     ["CursorLine", { bg: line }],
     ["CursorLineNr", { fg: color(colors, "editorLineNumber.activeForeground", accent), bg: line, style: "bold" }],
+    ["CursorLineFold", { fg: color(colors, "editorLineNumber.activeForeground", accent), bg: line }],
+    ["CursorLineSign", { fg: color(colors, "editorLineNumber.activeForeground", accent), bg: line }],
     ["Directory", { fg: palette.support }],
     ["EndOfBuffer", { fg: background, bg: background }],
     ["ErrorMsg", { fg: error, bg: background, style: "bold" }],
@@ -434,6 +441,8 @@ function buildTheme(name, theme) {
     ["GitGutterAdd", { fg: diffAdd, bg: background }],
     ["GitGutterChange", { fg: diffChange, bg: background }],
     ["GitGutterDelete", { fg: diffDelete, bg: background }],
+    ["TermCursor", { fg: background, bg: cursor }],
+    ["TermCursorNC", { fg: lineBorder, bg: line }],
     ["DiagnosticError", { fg: error }],
     ["DiagnosticWarn", { fg: warning }],
     ["DiagnosticInfo", { fg: info }],
@@ -591,6 +600,10 @@ if has('termguicolors')
   set termguicolors
 endif
 
+if get(g:, 'noctis_enable_cursorline', 1)
+  set cursorline
+endif
+
 let s:terminal_ansi_colors = ${JSON.stringify(terminal).replaceAll('"', "'")}
 if has('nvim')
   let g:terminal_color_0 = s:terminal_ansi_colors[0]
@@ -611,10 +624,12 @@ if has('nvim')
   let g:terminal_color_15 = s:terminal_ansi_colors[15]
 endif
 
-function! s:hi(group, fg, bg, sp, style) abort
+function! s:hi(group, fg, bg, sp, style, ctermfg, ctermbg) abort
   let l:cmd = 'highlight ' . a:group
   let l:cmd .= empty(a:fg) ? ' guifg=NONE' : ' guifg=' . a:fg
   let l:cmd .= empty(a:bg) ? ' guibg=NONE' : ' guibg=' . a:bg
+  let l:cmd .= empty(a:ctermfg) ? ' ctermfg=NONE' : ' ctermfg=' . a:ctermfg
+  let l:cmd .= empty(a:ctermbg) ? ' ctermbg=NONE' : ' ctermbg=' . a:ctermbg
   if !empty(a:sp)
     let l:cmd .= ' guisp=' . a:sp
   endif

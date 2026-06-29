@@ -178,6 +178,12 @@ set termguicolors
 colorscheme noctis
 ```
 
+Noctis enables Vim's `cursorline` by default so the active line behaves like the VS Code theme. Disable that before loading the colorscheme if you prefer to manage it yourself:
+
+```vim
+let g:noctis_enable_cursorline = 0
+```
+
 vim-airline is supported. If you use [vim-airline](https://github.com/vim-airline/vim-airline), select the matching Noctis airline theme:
 
 ```vim

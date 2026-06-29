@@ -24,6 +24,13 @@ For best results in Vim or Neovim:
   set termguicolors
 <
 
+Noctis enables |'cursorline'| by default so the active line matches the VS Code
+theme behavior. Disable this before loading the colorscheme if you manage
+cursorline yourself:
+>
+  let g:noctis_enable_cursorline = 0
+<
+
 ==============================================================================
 COLORSCHEMES                                                *noctis-variants*
 
