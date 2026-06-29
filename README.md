@@ -161,6 +161,41 @@ The color names were matched using the excellent online tools [Name that Color](
 
 Noctis can be installed by clicking on Ctrl + Shift + X on Windows or ⇧ + ⌘ + X on Mac and then searching for "Noctis".
 
+### Vim
+
+Noctis can also be installed as a Vim colorscheme plugin with [vim-plug](https://github.com/junegunn/vim-plug):
+
+```vim
+Plug 'liviuschera/noctis'
+```
+
+After running `:PlugInstall`, choose one of the available variants:
+
+```vim
+set termguicolors
+colorscheme noctis
+```
+
+If you use [vim-airline](https://github.com/vim-airline/vim-airline), select the matching Noctis airline theme:
+
+```vim
+let g:airline_theme='noctis'
+```
+
+Available Vim colorschemes:
+
+-   `noctis`
+-   `noctis_azureus`
+-   `noctis_bordo`
+-   `noctis_hibernus`
+-   `noctis_lilac`
+-   `noctis_lux`
+-   `noctis_minimus`
+-   `noctis_obscuro`
+-   `noctis_sereno`
+-   `noctis_uva`
+-   `noctis_viola`
+
 ## How to contribute
 
 Beginning with v7.21.0 the theme building process has been simplified. I started off with the idea used in [Lucy](https://marketplace.visualstudio.com/items?itemName=juliettepretot.lucy-vscode) theme and came up with this theme generator powered by Node.js. This will allow me or any contributor to easily add/suggest new theme variants or changes to the existing ones. In `./src/` folder you will find:
@@ -170,6 +205,8 @@ Beginning with v7.21.0 the theme building process has been simplified. I started
 -   `./src/workbench/` &rarr; all eight theme versions containing Workbench/UI colors
 
 After you make a change in any of the above files you need to use `npm run build` command. The build output folder is `./themes/`
+
+Vim colorschemes are generated from `./themes/` into `./colors/`. Use `npm run build:vim` to rebuild only the Vim files.
 
 Happy hacking!
 

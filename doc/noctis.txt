@@ -1,0 +1,73 @@
+*noctis.txt*  Noctis colorschemes for Vim
+
+==============================================================================
+CONTENTS                                                        *noctis-vim*
+
+Noctis is a collection of light and dark colorschemes ported from the Noctis
+VS Code theme.
+
+==============================================================================
+INSTALLATION                                            *noctis-installation*
+
+Using vim-plug:
+>
+  Plug 'liviuschera/noctis'
+<
+
+Then run:
+>
+  :PlugInstall
+<
+
+For best results in Vim or Neovim:
+>
+  set termguicolors
+<
+
+==============================================================================
+COLORSCHEMES                                                *noctis-variants*
+
+Use one of these names with |:colorscheme|:
+>
+  colorscheme noctis
+  colorscheme noctis_azureus
+  colorscheme noctis_bordo
+  colorscheme noctis_hibernus
+  colorscheme noctis_lilac
+  colorscheme noctis_lux
+  colorscheme noctis_minimus
+  colorscheme noctis_obscuro
+  colorscheme noctis_sereno
+  colorscheme noctis_uva
+  colorscheme noctis_viola
+<
+
+The same names are available as vim-airline themes. With vim-airline installed:
+>
+  let g:airline_theme='noctis'
+<
+
+Or switch interactively:
+>
+  :AirlineTheme noctis_hibernus
+<
+
+The generated colorschemes include the standard Vim highlight groups, common
+HTML/CSS/JSON/Markdown groups, GitGutter groups, Vim/Neovim diagnostic groups,
+Tree-sitter highlight links, and matching vim-airline palettes.
+
+==============================================================================
+MAINTENANCE                                                *noctis-maintenance*
+
+The Vim files in colors/ and autoload/airline/themes/ are generated from the
+VS Code theme JSON files in themes/. Rebuild them with:
+>
+  npm run build:vim
+<
+
+Rebuild both VS Code themes and Vim colorschemes with:
+>
+  npm run build
+<
+
+vim:tw=78:ts=8:ft=help:norl:

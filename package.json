@@ -21,7 +21,9 @@
         "url": "https://github.com/liviuschera/noctis"
     },
     "scripts": {
-        "build": "node src/build.mjs",
+        "build": "node src/build.mjs && node scripts/build-vim.mjs",
+        "build:vscode": "node src/build.mjs",
+        "build:vim": "node scripts/build-vim.mjs",
         "release:major---": "npm run build && git add . && git commit -m 🆕10.0.0🆕 && npm version major & vsce publish && git push",
         "release:minor": "npm run build && git add . && git commit -m 10.43.0 && npm version minor & vsce publish && git push",
         "release:patch": "npm run build && git add . && git commit -m 10.43.3 && npm version patch & vsce publish && git push"
