@@ -6,6 +6,8 @@
    <img width="400" src="/images/noctisLogo.png" />
 </p>
 
+This fork is a Vim port of the [Noctis VS Code theme](https://github.com/liviuschera/noctis). It includes Vim colorschemes for all Noctis variants and matching [vim-airline](https://github.com/vim-airline/vim-airline) themes.
+
 Noctis is a collection of light & dark themes with a well balanced blend of warm and cold **medium contrast** colors.
 
 The theme is designed to:
@@ -161,9 +163,9 @@ The color names were matched using the excellent online tools [Name that Color](
 
 Noctis can be installed by clicking on Ctrl + Shift + X on Windows or ⇧ + ⌘ + X on Mac and then searching for "Noctis".
 
-### Vim
+### Vim Port
 
-Noctis can also be installed as a Vim colorscheme plugin with [vim-plug](https://github.com/junegunn/vim-plug):
+This repository can be installed as a Vim colorscheme plugin with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
 Plug 'gmedina/noctis'
@@ -176,13 +178,13 @@ set termguicolors
 colorscheme noctis
 ```
 
-If you use [vim-airline](https://github.com/vim-airline/vim-airline), select the matching Noctis airline theme:
+vim-airline is supported. If you use [vim-airline](https://github.com/vim-airline/vim-airline), select the matching Noctis airline theme:
 
 ```vim
 let g:airline_theme='noctis'
 ```
 
-Available Vim colorschemes:
+Available Vim colorschemes and vim-airline themes:
 
 -   `noctis`
 -   `noctis_azureus`
@@ -206,7 +208,7 @@ Beginning with v7.21.0 the theme building process has been simplified. I started
 
 After you make a change in any of the above files you need to use `npm run build` command. The build output folder is `./themes/`
 
-Vim colorschemes are generated from `./themes/` into `./colors/`. Use `npm run build:vim` to rebuild only the Vim files.
+Vim colorschemes are generated from `./themes/` into `./colors/`, and vim-airline themes are generated into `./autoload/airline/themes/`. Use `npm run build:vim` to rebuild only the Vim files.
 
 Happy hacking!
 

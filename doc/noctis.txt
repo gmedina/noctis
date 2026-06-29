@@ -3,13 +3,13 @@
 ==============================================================================
 CONTENTS                                                        *noctis-vim*
 
-Noctis is a collection of light and dark colorschemes ported from the Noctis
-VS Code theme.
+This plugin is the Vim port of the Noctis VS Code theme. It provides Vim
+colorschemes for every Noctis variant and matching vim-airline themes.
 
 ==============================================================================
 INSTALLATION                                            *noctis-installation*
 
-Using vim-plug:
+Install the Vim port with vim-plug:
 >
   Plug 'gmedina/noctis'
 <
@@ -42,7 +42,7 @@ Use one of these names with |:colorscheme|:
   colorscheme noctis_viola
 <
 
-The same names are available as vim-airline themes. With vim-airline installed:
+vim-airline is supported. The same names are available as vim-airline themes:
 >
   let g:airline_theme='noctis'
 <
